@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/audiostack-discogs",
+  basePath: process.env.NODE_ENV === 'production' ? "/audiostack-discogs" : '',
   output: "export",
-  reactStrictMode: true,
+  reactStrictMode: true
 };
 
 export default nextConfig;
