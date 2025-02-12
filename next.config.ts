@@ -1,9 +1,9 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from "next";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   basePath: "/audiostack-discogs",
   output: "export",
   reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
