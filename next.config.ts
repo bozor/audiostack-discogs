@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   basePath: process.env.NODE_ENV === 'production' ? "/audiostack-discogs" : '',
-  output: "export",
+  output: "standalone",
   reactStrictMode: true
 };
 
