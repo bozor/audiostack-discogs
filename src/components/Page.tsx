@@ -8,6 +8,8 @@ import Search from "./Search";
 import Results from "./Results";
 import Pagination from './Pagination';
 
+import styles from './Page.module.css';
+
 const Page = () => {
   const [artist, setArtist] = useState('');
   const [page, setPage] = useState(1);
@@ -19,10 +21,10 @@ const Page = () => {
   };
 
   return (
-    <div>
+    <div className={styles.wrap}>
       <Search search={handleSearch} />
-      {error && <span>An error occured, refresh and try again</span>}
-      {isLoading && <span>loading</span>}
+      {error && <span className={styles.error}>An error occured, refresh and try again</span>}
+      {isLoading && <span className={styles.loading}>loading</span>}
       {
         data && 
         (
