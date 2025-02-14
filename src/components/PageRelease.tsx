@@ -31,7 +31,7 @@ const PageRelease = () => {
     <div className={styles.wrap}>
       {error && <span className={styles.error}>An error occured, refresh and try again</span>}
       {isLoading && <span className={styles.loading}>loading</span>}
-      {data ? (
+      {data && (
         <Release 
           have={data.community.have || 0}
           want={data.community.want || 0}
@@ -41,7 +41,10 @@ const PageRelease = () => {
           year={data.year}
           image={getImage(data.images[0])}
         />
-      ) : <p data-cy="no-release-id">Please specify a release id</p>}
+      )}
+      {
+        (!data && !isLoading) && <p data-cy="no-release-id">Please specify a release id</p>
+      }
     </div>
   )
 }
