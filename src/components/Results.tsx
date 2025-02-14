@@ -9,7 +9,7 @@ type ResultsProps = {
 }
 
 const Results = ({ results } : ResultsProps) => {
-  if(results?.length === 0) return <div className={styles.wrap}><p>no results found</p></div>
+  if(results?.length === 0) return <div className={styles.wrap}><p className={styles.message}>no results found</p></div>
 
   return (
     <div className={styles.wrap}>

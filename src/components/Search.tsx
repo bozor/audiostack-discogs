@@ -11,8 +11,8 @@ const Search = ({search} : SearchProps) => {
 
   return (
     <div className={styles.wrap}>
-      <input placeholder="Search for an artist..." type="text" value={artist} onChange={(event) => setArtist(event.currentTarget.value)} />
-      <button onClick={() => search(artist)}>search</button>
+      <input className={styles.input} placeholder="Search for an artist..." type="text" value={artist} onChange={(event) => setArtist(event.currentTarget.value)} />
+      <button className={styles.button} onClick={() => search(artist)}>search</button>
     </div>
   )
 }
