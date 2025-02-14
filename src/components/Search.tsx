@@ -1,19 +1,16 @@
-'use client'
-import { useState } from 'react';
+import { useState } from "react";
 
-import { search } from '@/app/actions';
+type SearchProps = {
+  search: (artist: string) => void;
+}
 
-const Search = () => {
+const Search = ({search} : SearchProps) => {
   const [artist, setArtist] = useState('');
-  const handleClick = async () => {
-    const result = await search(artist);
 
-    console.log(result)
-  }
   return (
     <div>
       <input type="text" value={artist} onChange={(event) => setArtist(event.currentTarget.value)} />
-      <button onClick={handleClick}>search</button>
+      <button onClick={() => search(artist)}>search</button>
     </div>
   )
 }

@@ -26,7 +26,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
-        <footer>By Boris Grudinin</footer>
       </body>
     </html>
   );
