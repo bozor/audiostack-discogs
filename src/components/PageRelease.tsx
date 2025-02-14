@@ -7,6 +7,8 @@ import { fetcher } from "@/utils/fetcher";
 
 import Release from "./Release";
 
+import styles from './PageRelease.module.css'
+
 const getImage = (image: Record<string, string | number>) => {
   if (image) {
     return {
@@ -26,9 +28,9 @@ const PageRelease = () => {
   const { data, error, isLoading } = useSWR(id ? `https://api.discogs.com/releases/${id}?token=${process.env.NEXT_PUBLIC_DISCOGS_TOKEN}`: null, fetcher)
 
   return (
-    <div>
-      {error && <span>An error occured, refresh and try again</span>}
-      {isLoading && <span>loading</span>}
+    <div className={styles.wrap}>
+      {error && <span className={styles.error}>An error occured, refresh and try again</span>}
+      {isLoading && <span className={styles.loading}>loading</span>}
       {data && (
         <Release 
           have={data.community.have || 0}
