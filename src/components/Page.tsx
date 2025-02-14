@@ -1,6 +1,7 @@
 'use client'
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import useSWR from 'swr';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 import { fetcher } from '@/utils/fetcher';
 
@@ -11,13 +12,26 @@ import Pagination from './Pagination';
 import styles from './Page.module.css';
 
 const Page = () => {
-  const [artist, setArtist] = useState('');
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const artist = searchParams.get('artist');
   const [page, setPage] = useState(1);
+
+  const createQueryString = useCallback(
+    (name: string, value: string) => {
+      const params = new URLSearchParams(searchParams.toString())
+      params.set(name, value)
+ 
+      return params.toString()
+    },
+    [searchParams]
+  )
 
   const { data, error, isLoading } = useSWR(artist ? `https://api.discogs.com/database/search?token=${process.env.NEXT_PUBLIC_DISCOGS_TOKEN}&artist=${artist}&page=${page}&per_page=5` : null, fetcher)
 
   const handleSearch = async (artist: string) => {
-    setArtist(artist);
+    router.push(pathname + '?' + createQueryString('artist', artist))
   };
 
   return (
