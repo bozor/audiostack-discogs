@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import styles from './Search.module.css';
+
 type SearchProps = {
   search: (artist: string) => void;
 }
@@ -8,8 +10,8 @@ const Search = ({search} : SearchProps) => {
   const [artist, setArtist] = useState('');
 
   return (
-    <div>
-      <input type="text" value={artist} onChange={(event) => setArtist(event.currentTarget.value)} />
+    <div className={styles.wrap}>
+      <input placeholder="Search for an artist..." type="text" value={artist} onChange={(event) => setArtist(event.currentTarget.value)} />
       <button onClick={() => search(artist)}>search</button>
     </div>
   )
