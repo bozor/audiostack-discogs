@@ -77,6 +77,12 @@ jobs:
         env:
           NEXT_PUBLIC_DISCOGS_TOKEN: ${{ secrets.DISCOGS_TOKEN }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run e2e:headless
+          browser: chrome
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
