@@ -20,8 +20,8 @@ const Release = ({have, want, artist, genres, title, year, image} : ReleaseProps
   return (
     <div className={styles.wrap}>
       <div className={styles.info}>
-        <h1>{title} - {artist}</h1>
-        <ul>
+        <h1 className={styles.title}>{title} - {artist}</h1>
+        <ul className={styles.details}>
           {genres && <li><strong>Genres:</strong> {genres.map((genre, index) => <span key={index}>{genre}</span>)}</li>}
           <li><strong>Year:</strong> {year}</li>
           <li><strong>Have:</strong> {have}</li>
@@ -29,7 +29,7 @@ const Release = ({have, want, artist, genres, title, year, image} : ReleaseProps
         </ul>
       </div>
 
-      {image && <div className={styles.image}><Image src={image.uri} width={image.width} height={image.height} alt={title} /></div>}
+      {image && <div className={styles.imageWrap}><Image className={styles.image} src={image.uri} width={image.width} height={image.height} alt={title} /></div>}
     </div>
   )
 }
