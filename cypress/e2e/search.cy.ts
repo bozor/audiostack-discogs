@@ -2,6 +2,7 @@ describe('Open app and get some search results', () => {
   beforeEach(() => {
     cy.visit('/');
   });
+  
   it('Is able to open the root url', () => {});
 
   it('Is able to input a search term and see results', () => {
