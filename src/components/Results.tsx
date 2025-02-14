@@ -14,10 +14,10 @@ const Results = ({ results } : ResultsProps) => {
       {
         results && results.map((result: Result) => (
           <ResultItem 
-            key={result.uri as string} 
+            key={result.id as number} 
             title={result.title as string} 
             thumb={result.thumb as string} 
-            uri={result.uri as string}
+            id={result.id as number}
           />
         ))
       }
