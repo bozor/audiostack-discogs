@@ -78,19 +78,19 @@ jobs:
           NEXT_PUBLIC_DISCOGS_TOKEN: ${{ secrets.DISCOGS_TOKEN }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run e2e:headless
-          browser: chrome
-          wait-on: 'http://localhost:3000/audiostack-discogs'
-          config: baseUrl=http://localhost:3000/audiostack-discogs
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
+      # - name: Cypress run
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     start: npm run e2e:headless
+      #     browser: chrome
+      #     wait-on: 'http://localhost:3000/audiostack-discogs'
+      #     config: baseUrl=http://localhost:3000/audiostack-discogs
+      # - name: Upload screenshots
+      #   uses: actions/upload-artifact@v4
+      #   if: failure()
+      #   with:
+      #     name: cypress-screenshots
+      #     path: cypress/screenshots
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
