@@ -83,6 +83,12 @@ jobs:
         with:
           start: npm run e2e:headless
           browser: chrome
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
