@@ -11,7 +11,7 @@ type ResultItemProps = {
 
 const ResultItem = ({title, thumb, id} : ResultItemProps) => {
   return (
-    <Link className={styles.wrap} href={`/release?id=${id}`}>
+    <Link className={styles.wrap} href={`/release?id=${id}`} data-cy="search-result">
       {thumb && <Image src={thumb} alt={title} width={150} height={150} />}
       <strong>{title}</strong>
     </Link>

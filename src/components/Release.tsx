@@ -18,7 +18,7 @@ type ReleaseProps = {
 
 const Release = ({have, want, artist, genres, title, year, image} : ReleaseProps) => {
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrap} data-cy="release">
       <div className={styles.info}>
         <h1 className={styles.title}>{title} - {artist}</h1>
         <ul className={styles.details}>
